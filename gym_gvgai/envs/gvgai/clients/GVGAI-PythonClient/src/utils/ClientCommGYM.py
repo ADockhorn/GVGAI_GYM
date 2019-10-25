@@ -105,8 +105,9 @@ class ClientCommGYM:
             actions=self.actions()
 
 
-        info = {'winner': self.sso.gameWinner, 'grid': self.sso.observationGrid, 'ascii': self.sso.observationString}  
-        return self.sso.image, score, self.sso.Terminal, info
+        #info = {'winner': self.sso.gameWinner, 'grid': self.sso.observationGrid, 'ascii': self.sso.observationString,
+        #        'test': self.sso.fromAvatarSpritesPositions}
+        return self.sso.image, score, self.sso.Terminal, self.sso
 
     def reset(self, lvl):
         #flag=True
@@ -205,6 +206,7 @@ class ClientCommGYM:
         parsed_input = json.loads(input)
         self.sso.__dict__.update(parsed_input)
         if parsed_input.get('observationGrid'):
+            self.sso.origObservationGrid = self.sso.observationGrid
             # self.sso.observationGrid = [[[None for j in range(self.sso.observationGridMaxCol)]
             #                              for i in range(self.sso.observationGridMaxRow)]
             #                             for k in range(self.sso.observationGridNum)]
