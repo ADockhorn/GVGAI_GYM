@@ -107,7 +107,7 @@ class ClientCommGYM:
 
         #info = {'winner': self.sso.gameWinner, 'grid': self.sso.observationGrid, 'ascii': self.sso.observationString,
         #        'test': self.sso.fromAvatarSpritesPositions}
-        return self.sso.image, score, self.sso.Terminal, self.sso
+        return self.sso.image, score, self.sso.Terminal, {"sso": self.sso}
 
     def reset(self, lvl):
         #flag=True

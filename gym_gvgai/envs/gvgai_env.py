@@ -85,7 +85,7 @@ class GVGAI_Env(gym.Env):
         if mode == 'rgb_array':
             return img
         elif mode == 'ascii':
-            return self.info.observationString
+            return self.info["sso"].observationString
         elif mode == 'human':
             from gym.envs.classic_control import rendering
             if self.viewer is None:
