@@ -26,14 +26,14 @@ class IOSocket:
         self.logfile = open(self.logfilename, "a")
 
     def initBuffers(self):
-        print ("Connecting to host " + str(self.hostname) + " at port " + str(self.port) + " ...")
+        logging.debug("Connecting to host " + str(self.hostname) + " at port " + str(self.port) + " ...")
         while not self.connected:
             try:
                 self.socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
                 self.socket.setsockopt(socket.IPPROTO_TCP, socket.TCP_NODELAY, 1) # Send immediately.
                 self.socket.connect((self.hostname, self.port))
                 self.connected = True
-                print ("Client connected to server [OK]")
+                logging.debug("Client connected to server [OK]")
             except Exception as e:
                 time.sleep(1)
                 # logging.exception(e)
